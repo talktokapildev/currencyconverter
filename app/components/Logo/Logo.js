@@ -4,11 +4,15 @@ import styles from "./styles";
 
 const Logo = () => (
     <View style={styles.container}>
-        <ImageBackground style={styles.containerImage} source={require('./images/background.png')}>
-            <Image source={require('./images/logo.png')}/>
-        </ImageBackground>
-        <Text>Currency Converter1 </Text>
-    </View>
+    <ImageBackground
+      resizeMode="contain"
+      style={styles.containerImage}
+      source={require('./images/background.png')}
+    >
+      <Image resizeMode="contain" style={styles.logo} source={require('./images/logo.png')} />
+    </ImageBackground>
+    <Text style={styles.text}>Currency Converter</Text>
+  </View>
 );
 
 export default Logo;
