@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { ScrollView, StatusBar, Platform } from 'react-native';
+import { ScrollView, StatusBar, Platform, Linking } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { ListItem, Separator } from "../components/List";
 
@@ -9,12 +10,16 @@ const ICON_COLOR = '#868686';
 const ICON_SIZE = 23;
 
 class Options extends Component{
-    handleThemesPress = () => {
-        console.log('themes pressed');
+    static propTypes = {
+        navigation: PropTypes.object
+    }  
+
+    handlePressThemes = () => {
+        this.props.navigation.navigate('Themes');
     }
 
-    handleSitePress = () => {
-        console.log('press site');
+    handlePressSite = () => {
+        Linking.openURL('http://fixer.io').catch(() => { alert('an error occured')});
     }
 
     render(){
@@ -23,7 +28,7 @@ class Options extends Component{
                 <StatusBar translucent={false} barStyle="default"></StatusBar>
                 <ListItem
                 text="Themes"
-                onPress={this.handleThemesPress}
+                onPress={this.handlePressThemes}
                 customIcon={
                     <Ionicons name={`${ICON_PREFIX}-arrow-forward`} 
                     color={ICON_COLOR} size={ICON_SIZE}/>
@@ -33,7 +38,7 @@ class Options extends Component{
                 <Separator/>
                 <ListItem
                 text="Fixer.io"
-                onPress={this.handleSitePress}
+                onPress={this.handlePressSite}
                 customIcon={
                     <Ionicons name={`${ICON_PREFIX}-link`} 
                     color={ICON_COLOR} size={ICON_SIZE}/>

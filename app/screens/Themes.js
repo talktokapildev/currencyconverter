@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import { ScrollView, StatusBar } from 'react-native';
@@ -13,8 +14,13 @@ const styles = EStyleSheet.create({
 })
 
 class Themes extends Component{
-    handleThemePress = (color) => {
+    static propTypes = {
+        navigation: PropTypes.object
+    }  
+
+    handlePressTheme = (color) => {
         console.log('press theme', color);
+        this.props.navigation.goBack(null);
     }
 
     render(){
@@ -22,7 +28,7 @@ class Themes extends Component{
             <ScrollView>
                 <StatusBar translucent={false} barStyle="default"></StatusBar>
                 <ListItem text="Blue" 
-                onPress={() => this.handleThemePress(styles.$blue)}
+                onPress={() => this.handlePressTheme(styles.$blue)}
                 selected
                 checkmark={false}
                 iconBackground={styles.$blue}/>
