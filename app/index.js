@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import EStyleSheet from "react-native-extended-stylesheet";
-import CurrencyList from "./screens/CurrencyList";
+import Options from "./screens/Options";
 
 EStyleSheet.build({
     $primaryBlue: '#4F6D7A',
@@ -12,7 +12,7 @@ EStyleSheet.build({
   $inputText: '#797979', 
   $darkText: '#343434',
 })
-export default () => <CurrencyList/>;
+export default () => <Options/>;
 
 // export default class App extends React.Component {
 //   render() {
