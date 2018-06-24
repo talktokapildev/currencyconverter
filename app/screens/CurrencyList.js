@@ -12,15 +12,18 @@ const TEMP_CURRENT_CURRENCY = 'CAD';
 class CurrencyList extends Component {
   static propTypes = {
       navigation: PropTypes.object,
-      propTypes: func
+      dispatch : PropTypes.func
   }  
   handlePress = (currency) => {
+    console.log(this.props.navigation.state.params);
     const { type } = this.props.navigation.state.params;
-    if(type === 'base'){
+
+    console.log(this.props.navigation.state.params, type);
+    if(type === "base"){
       
       this.props.dispatch(changeBaseCurrency(currency));
 
-    }else if(type === 'quote'){
+    }else if(type === "quote"){
       this.props.dispatch(changeQuoteCurrency(currency));
     }
     this.props.navigation.goBack(null);
